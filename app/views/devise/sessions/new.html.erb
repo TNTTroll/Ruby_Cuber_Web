@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>CUBE</title>
+</head>
+
+<body>
+
+<div class="blur-box">
+  <table>
+    <tr>
+      <td><p class="text header" style="font-size: 48px ">Log in</p></td>
+    </tr>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: {turbo: false}) do |f| %>
+      <tr><td>
+        <div class="field">
+          <%= f.label :email, class:"text" %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"sign-in-field" %>
+        </div>
+      </td></tr>
+
+      <tr><td>
+        <div class="field">
+          <%= f.label :password, class:"text" %><br />
+          <%= f.password_field :password, autocomplete: "current-password", class:"sign-in-field"%>
+        </div>
+      </td></tr>
+
+      <tr><td>
+        <% if devise_mapping.rememberable? %>
+          <div style="height: 60px">
+            <%= f.check_box :remember_me, class:"check-box"%>
+            <%= f.label :remember_me, class:"text" %>
+          </div>
+        <% end %>
+      </td></tr>
+
+      <tr><td>
+        <div class="small-third" style="margin-left: 210px">
+          <%= f.submit "Log in", class:"small-cancel-button"%>
+        </div>
+      </td></tr>
+    <% end %>
+
+    <tr><td>
+      <div class="extra-small-third" style="margin-left: 260px"><%= button_to "Back", root_path, :method => :get, :class => "extra-small-cancel-button"%></div>
+    </td></tr>
+
+    <tr><td>
+      <%= render "devise/shared/links" %>
+    </td></tr>
+
+  </table>
+</div>
+</body>
+</html>
+

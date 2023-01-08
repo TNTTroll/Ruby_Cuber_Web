@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang='ru'>
+<body>
+
+<div id='pop' class="popup show">
+  <div class="popup-content start-content">
+
+    <button onclick='start_practice()'> <%= t('page.start.Practice') %> </button>
+
+    <button onclick='start_competition()'> <%= t('page.start.Competition') %> </button>
+
+  </div>
+</div>
+
+<div id='statistics' class="popup hide">
+  <div class="popup-content stat-content">
+
+    <p> <%= t('page.stat.Title') %> </p>
+
+    <p id='timerStat'> </p>
+
+    <%= button_to t('page.over.Restart'), base_board_path, :method => :get, :id => 'IdExit' %>
+
+  </div>
+</div>
+
+<div id='over' class="popup hide">
+  <div class="popup-content over-content">
+
+    <h1> <%= t('page.over.Title') %> </h1>
+
+    <p> <%= t('page.over.Explain') %> </p>
+    <p> <%= t('page.over.Again') %> </p>
+
+    <%= button_to t('page.over.Restart'), base_board_path, :method => :get, :id => 'IdExit' %>
+
+  </div>
+</div>
+
+<div class='column left'>
+  <canvas id='c'></canvas>
+</div>
+
+<div class='column right info'>
+  <h1> <%= t('page.Navigation') %> </h1>
+
+  <table>
+    <tr>
+      <td> <button onclick='turn_button(1, 1)'>U</button> </td>
+      <td> <button onclick='turn_button(1, -1)'>U'</button> </td>
+    </tr>
+
+    <tr>
+      <td> <button onclick='turn_button(2, 1)'>R</button> </td>
+      <td> <button onclick='turn_button(2, -1)'>R'</button> </td>
+    </tr>
+
+    <tr>
+      <td> <button onclick='turn_button(0, 1)'>F</button> </td>
+      <td> <button onclick='turn_button(0, -1)'>F'</button> </td>
+    </tr>
+
+    <tr>
+      <td> <button onclick='turn_button(4, 1)'>L</button> </td>
+      <td> <button onclick='turn_button(4, -1)'>L'</button> </td>
+    </tr>
+
+    <tr>
+      <td> <button onclick='turn_button(3, 1)'>B</button> </td>
+      <td> <button onclick='turn_button(3, -1)'>B'</button> </td>
+    </tr>
+
+    <tr>
+      <td> <button onclick='turn_button(5, 1)'>D</button> </td>
+      <td> <button onclick='turn_button(5, -1)'>D'</button> </td>
+    </tr>
+  </table>
+
+  <ul>
+    <button id='BtnIdScrumble' onclick='btn_scrumble()'> <%= t('page.Scrumble') %> </button>
+
+    <button id='BtnIdSolved' onclick='btn_solved()'> <%= t('page.Solved') %> </button>
+
+    <button id='BtnIdRestart' onclick='btn_restart()'> <%= t('page.Restart') %> </button>
+
+  </ul>
+
+  <h1> <time id='Timer'></time> </h1>
+
+  <p id='isSolved'> </p>
+
+</div>
+
+</body>
+</html>

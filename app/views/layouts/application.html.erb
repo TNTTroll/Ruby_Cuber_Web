@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+  <body>
+  <!DOCTYPE html>
+  <html lang='ru'>
+  <head>
+
+    <title>Cuber Web</title>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8">
+    <base href=".">
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/three@0.88.0/build/three.min.js">
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/three@0.88.0/examples/js/loaders/GLTFLoader.min.js">
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/three@0.88.0/examples/js/renderers/Projector.js">
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/three@0.88.0/examples/js/controls/OrbitControls.js">
+    </script>
+
+  </head>
+
+  <body>
+
+  <% if current_page?(root_path) %>
+
+  <div class="lokalisation-box">
+    <%= link_to "English", { :locale=>'en' } %>
+    <%= link_to "Русский", { :locale=>'ru' } %>
+
+    <p style="color: #00dede"> Lang: <%= I18n.locale %> </p>
+
+    <p class="notice small-text"><%= notice %></p>
+    <p class="alert small-text"><%= alert %></p>
+  </div>
+
+  <table class="application-table">
+      <div class="logo"></div>
+      <% if current_user %>
+        <tr>
+          <td><div class="third"><%= button_to t('main.Statistic'), controll_pop_up_path, method: :get, data: { turbo: false }, class:'cancel-button'%></div></td>
+        </tr>
+        <tr>
+          <td><div class="third"><%= button_to t('main.Play'), controll_page_path, method: :get, data: { turbo: false }, class:'cancel-button'%></div></td>
+        </tr>
+        <tr>
+          <td><div class="third"><%= button_to t('main.Logout'), destroy_user_session_path, method: :delete, data: { turbo: false }, class:'cancel-button'%></div></td>
+        </tr>
+      <% else %>
+          <tr>
+            <td><div class="third"><%= button_to t('main.Signup'), new_user_registration_path, method: :get, data: {turbo: false}, class:"cancel-button "%></div></td>
+          </tr>
+          <tr>
+            <td><div class="third "><%= button_to t('main.Login'), new_user_session_path, method: :get, data: {turbo: false}, class:"cancel-button "%></div></td>
+          </tr>
+      <% end %>
+  </table>
+  <% end %>
+  <%= yield %>
+
+  </body>
+
+  </html>
+

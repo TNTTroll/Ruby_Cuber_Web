@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+<div class="greeting-box">
+
+  <% if current_user %>
+    <p class="text"> <%= t('main.Welcome') %>, <%= current_user.email %></p>
+  <% else %>
+    <p class="text"> <%= t('main.Authorize') %> </p>
+  <% end %>
+</div>
+
+</body>
+
+</html>

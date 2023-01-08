@@ -1,0 +1,2 @@
+class ResultsForTimer < ApplicationRecord
+end

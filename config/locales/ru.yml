@@ -1,0 +1,45 @@
+ru:
+  statistics:
+    Email: "Почта"
+    Solved: 'Собрано'
+    Player: "Сыграно"
+    Time: "Рекорд"
+
+  main:
+    Statistic: "Статистика"
+    Play: "Играть"
+    Logout: "Выйти"
+    Signup: "Зарегистрироваться"
+    Login: "Войти"
+    Welcome: "Добро пожаловать"
+    Authorize: "Для продолжения необходимо войти!"
+    Menu: "В Меню"
+
+  page:
+    start:
+      Practice: "Режим практики"
+      Competition: "Режим соревнования"
+
+    stat:
+      Title: "Статистика"
+      Time: "Время"
+
+    over:
+      Title: "Игра окончена"
+      Explain: "Остановка таймер до полной сборки кубика"
+      Again: "Попробуй еще раз"
+      Restart: "Переиграть"
+
+    skin:
+      Title: "Скины"
+      Select: "Выбрать"
+
+    Navigation: "УПРАВЛЕНИЕ"
+    Scrumble: "Разобрать"
+    Solved: "Остановить таймер"
+    Restart: "Перезагрузить"
+    Skin: "Сменить скин"
+
+    base:
+      Title: "Таблица лидеров"
+      Results: 'Сборки'

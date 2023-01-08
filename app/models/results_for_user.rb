@@ -1,0 +1,2 @@
+class ResultsForUser < ApplicationRecord
+end

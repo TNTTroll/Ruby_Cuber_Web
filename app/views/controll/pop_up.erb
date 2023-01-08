@@ -1,0 +1,122 @@
+<script>
+    function switchOne(way) {
+        let table = document.getElementById('Table');
+
+        let time = table.children[0];
+        let count = table.children[1];
+        if (way == 'Time') {
+            time.style.display = 'table';
+            count.style.display = 'none';
+        } else {
+            time.style.display = 'none';
+            count.style.display = 'table';
+        }
+    }
+</script>
+
+<div>
+  <table>
+    <tr>
+      <td><button onclick="switchOne('Time')" class="cancel-button" style="margin-left: 38%; margin-top: 100px; color: #00dede">Time</button></td>
+      <td><button onclick="switchOne('Count')" class="cancel-button" style="margin-left: 48%; margin-top: 100px; color: #00dede">Count</button></td>
+    </tr>
+  </table>
+</div>
+
+<div class="popup-content">
+
+  <div class="blur-box-bord application-table">
+
+  <div class="popup-content text">
+    <h1 style="font-size: 60px"> <%= t('page.stat.Title') %> </h1>
+
+    <div id="Table">
+      <div id="Time" style='display:none'>
+
+          <% players = ResultsForTimer.group(:user) %>
+
+          <table>
+
+            <tr style="font-family: Italic">
+              <td> <%= t('statistics.Email') %> </td>
+              <td> <%= t('statistics.Player') %> </td>
+              <td> <%= t('statistics.Solved') %> </td>
+              <td> <%= t('statistics.Time') %> </td>
+            </tr>
+
+            <% players.order(:speed).each do |player| %>
+              <% arr = [] %>
+              <% time = [] %>
+              <% ResultsForTimer.all.each do |step| %>
+                <% if step.user == player.user %>
+                  <% arr.push(step)  %>
+                  <% time.push(step.speed) %>
+                <% end %>
+              <% end %>
+
+              <% time = time.min %>
+
+              <tr>
+                <td> <%= player.user %> </td>
+                <td> <%= player.played %> </td>
+                <td> <%= player.solved %> </td>
+                <td>
+                  <%= ("%02d"%(time / 3600 ).to_s) + ':' + ("%02d"%(time / 60 ).to_s) + ':' + ("%02d"%(time).to_s) %>
+                </td>
+              </tr>
+
+            <% end %>
+
+          </table>
+
+        </div>
+
+      <div id="Count" style='display:table'>
+
+          <% players = ResultsForTimer.group(:user) %>
+
+          <table>
+
+            <tr style="font-family: Italic">
+              <td> <%= t('statistics.Email') %> </td>
+              <td> <%= t('statistics.Player') %> </td>
+              <td> <%= t('statistics.Solved') %> </td>
+              <td> <%= t('statistics.Time') %> </td>
+            </tr>
+
+            <% players.order(:solved).reverse.each do |player| %>
+              <% arr = [] %>
+              <% time = [] %>
+              <% ResultsForTimer.all.each do |step| %>
+                <% if step.user == player.user %>
+                  <% arr.push(step)  %>
+                  <% time.push(step.speed) %>
+                <% end %>
+              <% end %>
+
+              <% time = time.min %>
+
+              <tr>
+                <td> <%= player.user %> </td>
+                <td> <%= player.played %> </td>
+                <td> <%= player.solved %> </td>
+                <td>
+                  <%= ("%02d"%(time / 3600 ).to_s) + ':' + ("%02d"%(time / 60 ).to_s) + ':' + ("%02d"%(time).to_s) %>
+                </td>
+              </tr>
+
+            <% end %>
+
+          </table>
+
+        </div>
+    </div>
+    </div>
+
+  </div>
+
+  <div class="text">
+    <%= button_to t('main.Menu'), root_path, method: :get, data: { turbo: false }, class:'cancel-button', style: "color: #00dede"%>
+  </div>
+
+</div>

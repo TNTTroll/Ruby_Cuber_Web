@@ -1,0 +1,47 @@
+en:
+  statistics:
+    Email: "Email"
+    Solved: "Solved"
+    Player: "Played"
+    Time: "Best"
+
+  main:
+    Statistic: "Statistics"
+    Play: "Play"
+    Logout: "Log Out"
+    Signup: "SIGN UP"
+    Login: "LOG IN"
+    Welcome: "Welcome"
+    Authorize: "Authorize before action!"
+    Menu: "Main Menu"
+
+  page:
+    start:
+      Practice: "Practice Mode"
+      Competition: "Competition Mode"
+
+    stat:
+      Title: "Statistics"
+      Time: "Time"
+
+    over:
+      Title: "Game Over"
+      Explain: "You stopped timer before solving the puzzle"
+      Again: "Try Again"
+      Restart: "Restart"
+
+    skin:
+      Title: "Skins"
+      Select: "Select"
+
+    Navigation: "NAVIGATION"
+    Scrumble: "Scrumble"
+    Solved: "Stop Timer"
+    Restart: "Restart"
+    Skin: "Change skin"
+
+  base:
+    Title: "Leaderboard"
+    Results: 'Solved'
+
+

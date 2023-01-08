@@ -1,0 +1,13 @@
+<div class="popup-content">
+  <div class="blur-box-bord application-table">
+    <table>
+      <tr><td><p class='text cen' style="font-size: 50px"> <%= t('base.Title') %> </p></td></tr>
+      <tr><td><p class='text'> <%= t('statistics.Email') %>: </p> <p class='email'> <%= ResultsForTimer.find_by_user(current_user.email).user %></p></td></tr>
+      <tr><td><p class='text'> <%= t('statistics.Player') %>: </p> <p class='email'> <%= ResultsForTimer.find_by_user(current_user.email).played %></p></td></tr>
+      <tr><td><p class='text'> <%= t('statistics.Solved') %>: </p> <p class='email'> <%= ResultsForTimer.find_by_user(current_user.email).solved %></p></td></tr>
+      <tr><td><p class='text'> <%= t('statistics.Time') %>: </p> <p class='email'> <%= ResultsForTimer.find_by_user(current_user.email).speed %></p></td></tr>
+    </table>
+
+    <%= button_to t('main.Menu'), root_path, method: :get, data: { turbo: false }, class:'cancel-button'%>
+  </div>
+</div>
